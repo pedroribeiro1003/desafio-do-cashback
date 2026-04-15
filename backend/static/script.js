@@ -1,4 +1,4 @@
-const API = "http://localhost:8000";
+const API = "";
 
 async function calcular() {
   const valor = parseFloat(document.getElementById("valor").value);
@@ -7,8 +7,8 @@ async function calcular() {
 
   const res = await fetch(`${API}/calcular`, {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({valor, desconto, vip})
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ valor, desconto, vip })
   });
 
   const data = await res.json();
@@ -19,6 +19,7 @@ async function calcular() {
 async function carregarHistorico() {
   const res = await fetch(`${API}/historico`);
   const lista = await res.json();
+
   const ul = document.getElementById("historico");
   ul.innerHTML = "";
 
